@@ -1,4 +1,4 @@
-<!-- Dashboard.svelte -->
+<!-- Dashboard.svelte
 
 <script>
     import { onMount } from "svelte";
@@ -50,6 +50,27 @@
         <th>Amount</th>
         <th>Date</th>
     </tr>
-</table>    
+</table>     -->
 <!-- Improve table UI -->
+<!-- </div> -->
+
+<script>
+    import { onMount } from "svelte";
+    import { goto } from "$app/navigation";
+    import { isAuth, username } from "../login/+page.svelte";
+    import Navbar from "../main/Navbar.svelte";
+
+
+</script>
+<Navbar />
+<div>
+<h1>Transaction Page</h1>
+<table id="transaction-history-table">
+    <tr>
+        <th>Sender Account Number</th>
+        <th>Target Account Number</th>
+        <th>Amount</th>
+        <th>Date</th>
+    </tr>
+</table>
 </div>

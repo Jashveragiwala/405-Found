@@ -1,7 +1,22 @@
 <!-- Navbar.svelte -->
 
 <script>
-  // You can add any logic or event handlers here
+  import { onMount } from "svelte";
+  import { goto } from "$app/navigation";
+  import { isAuth, username } from "../login/+page.svelte";
+  function handleLogout() {
+    goto("../login");
+  }
+  function handleTransfer() {
+    goto("../transfer");
+  }
+  function handleHistory() {
+    goto("../transaction");
+  }
+
+  function handleDashboard() {
+    goto("../main");
+  }
 </script>
 
 <style>
@@ -52,9 +67,9 @@
 <div class="navbar">
   <div class="navbar-brand">My Digital Wallet</div>
   <ul class="navbar-links">
-    <li class="navbar-link">Dashboard</li>
-    <li class="navbar-link">Transfer Funds</li>
-    <li class="navbar-link">Transaction History</li>
-    <li class="navbar-link">Logout</li>
+    <li class="navbar-link" on:click={handleDashboard}>Dashboard</li>
+    <li class="navbar-link" on:click={handleTransfer}>Transfer Funds</li>
+    <li class="navbar-link" on:click={handleHistory}>Transaction History</li>
+    <li class="navbar-link" on:click={handleLogout}>Logout</li>
   </ul>
 </div>
