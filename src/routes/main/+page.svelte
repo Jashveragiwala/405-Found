@@ -4,6 +4,8 @@
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
   import { isAuth } from "../login/+page.svelte";
+  import BankAccount from "../../controllers/BankAccount";
+  import Navbar from "./Navbar.svelte";
 
   function handleAuthentication() {
     if (isAuth) {
@@ -19,36 +21,43 @@
     handleAuthentication();
   });
 
+  const account1 = new BankAccount("DBS", "74986123", "Jash", 3250);
+  const account2 = new BankAccount("Standard Chartered", "31579082", "Jash", 7820);
+  const account3 = new BankAccount("Citibank", "46820514", "Jash", 8470);
+  const account4 = new BankAccount("HSBC", "92673108", "Jash", 1950);
+  const account5 = new BankAccount("UOB", "57293410", "Jash", 5690);
+
+
   let bankAccounts = [
     {
-      bankName: 'Bank A',
-      accountNumber: '123456',
-      deposits: 1500
+      bankName: account1.getBankName(),
+      accountNumber: account1.getAccountNumber(),
+      deposits: account1.getBalance()
     },
     {
-      bankName: 'Bank B',
-      accountNumber: '789012',
-      deposits: 2500
+      bankName: account2.getBankName(),
+      accountNumber: account2.getAccountNumber(),
+      deposits: account2.getBalance()
     },
     {
-      bankName: 'Bank C',
-      accountNumber: '738928',
-      deposits: 6500
+      bankName: account3.getBankName(),
+      accountNumber: account3.getAccountNumber(),
+      deposits: account3.getBalance()
     },
     {
-      bankName: 'Bank D',
-      accountNumber: '873621',
-      deposits: 500
+      bankName: account4.getBankName(),
+      accountNumber: account4.getAccountNumber(),
+      deposits: account4.getBalance()
     },
     {
-      bankName: 'Bank E',
-      accountNumber: '098372',
-      deposits: 300
+      bankName: account5.getBankName(),
+      accountNumber: account5.getAccountNumber(),
+      deposits: account5.getBalance()
     },
     // ... add more accounts
   ];
 
-  let totalAmount = bankAccounts.reduce((total, account) => total + account.deposits, 0);
+  let totalAmount = bankAccounts.reduce((total, account) => total + parseInt(account.deposits), 0);
 
   function removeAccount(index: number) {
     bankAccounts = bankAccounts.filter((_, i) => i !== index);
@@ -57,10 +66,22 @@
 
   function addAccount() {
     // Logic to add a new bank account
+    const bankName = prompt("Enter bank name");
+    const accountNumber = prompt("Enter account number");
+    const deposits = prompt("Enter deposits");
+    const newAccount = new BankAccount(bankName, accountNumber, "Jash", parseInt(deposits));
+    bankAccounts = [
+      ...bankAccounts,
+      {
+        bankName: newAccount.getBankName(),
+        accountNumber: newAccount.getAccountNumber(),
+        deposits: newAccount.getBalance()
+      }
+    ];
   }
 
   function updateTotalAmount() {
-    totalAmount = bankAccounts.reduce((total, account) => total + account.deposits, 0);
+    totalAmount = bankAccounts.reduce((total, account) => total + parseInt(account.deposits), 0);
   }
 </script>
 
@@ -140,6 +161,7 @@
   }
 </style>
 
+<Navbar />
 <div class="dashboard">
   <div class="dashboard-header">Dashboard</div>
   <div class="total-amount">Total Amount: ${totalAmount}</div>
