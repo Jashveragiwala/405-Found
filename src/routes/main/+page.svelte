@@ -27,6 +27,8 @@
   const account4 = new BankAccount("HSBC", "92673108", username, 1950);
   const account5 = new BankAccount("UOB", "57293410", username, 5690);
 
+  const allAccounts = [account1, account2, account3, account4, account5];
+
 
   let bankAccounts = [
     {
@@ -83,6 +85,9 @@
   function updateTotalAmount() {
     totalAmount = bankAccounts.reduce((total, account) => total + parseInt(account.deposits), 0);
   }
+
+  export { allAccounts };
+
 </script>
 
 <style>

@@ -17,9 +17,9 @@ export default class BankAccount {
     deposit(amount) {
       if (amount > 0) {
         this.balance += amount;
-        return `Deposited $${amount}. Current balance: $${this.balance}`;
+        return amount;
       } else {
-        return "Invalid deposit amount.";
+        return -1;
       }
     }
   
@@ -29,9 +29,9 @@ export default class BankAccount {
     withdraw(amount) {
       if (amount > 0 && amount <= this.balance) {
         this.balance -= amount;
-        return `Withdrawn $${amount}. Current balance: $${this.balance}`;
+        return amount;
       } else {
-        return "Invalid withdrawal amount or insufficient balance.";
+        return -1;
       }
     }
   
@@ -43,9 +43,9 @@ export default class BankAccount {
       if (amount > 0 && amount <= this.balance) {
         this.balance -= amount;
         targetAccount.balance += amount;
-        return `Transferred $${amount} to account ${targetAccount.accountNumber}. Your balance: $${this.balance}`;
+        return amount;
       } else {
-        return "Invalid transfer amount or insufficient balance.";
+        return -1;
       }
     }
 

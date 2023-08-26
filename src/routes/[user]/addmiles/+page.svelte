@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
   import { goto } from '$app/navigation';
   import { page } from '$app/stores';
   
@@ -51,12 +51,12 @@
   function cancel(user) {
     goto(`/${user}/info/`);
   }
-</script>
+</script> -->
 
 <div class="hero min-h-screen">
   <div class="hero-content">
     <div class="max-w-md">
-        {#each users as info}
+        <!-- {#each users as info}
           <h1 class="text-4xl font-bold">Add Miles</h1>
           <p class="py-6">Currently you have: {info.points} Miles</p>
           <input
@@ -76,7 +76,8 @@
           <br>
           <button class="btn btn-primary" on:click="{updatePoints}">Add</button>
           <button class="btn" on:click="{() => cancel(info.source_member_id)}">Cancel</button>
-        {/each}
+        {/each} -->
+        <h1>Hello</h1>
     </div>
   </div>
 </div>
