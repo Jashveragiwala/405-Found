@@ -5,17 +5,19 @@
 		goto('../signup');
 	}
 	var isAuth = false;
+	var username = '';
 
 	export async function handleLogin(username: String, password: String) {
 		console.log(`Attempting to log in as ${username}...`);
 		if (verifyUser(username, password)) {
 			isAuth = true;
+			username = username;
 			goto(`../main`); 
 		} else {
 			return 'Login failed: Invalid username or password';
 		}
 	}
-	export {isAuth};
+	export {isAuth, username};
 </script>
 
 <script lang="ts">

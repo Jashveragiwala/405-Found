@@ -13,21 +13,20 @@
 
 
 export function addUser(user) {
-    // users.push(user);
-    // console.log(users);
-    const jsonObject = JSON.stringify(user);
-    localStorage.setItem('users',JSON.parse(jsonObject));
-    console.log(localStorage.getItem('users'));
+  // localStorage.clear();
+  const users = JSON.parse(localStorage.getItem('users')) || []; // Retrieve existing users or initialize as an empty array
+  users.push(user);
+  localStorage.setItem('users', JSON.stringify(users)); // Store the array as a JSON string
+  console.log(users);
 }
 
 export function verifyUser(username, password) {
-  // Loop through the users array and check for a matching user
-  const users = localStorage.getItem('users');
-  console.log(users[0]);
+  const users = JSON.parse(localStorage.getItem('users')) || [];
   for (const user of users) {
-    if (user.email == username && user.password == password) {
+    if (user.email === username && user.password === password) {
       return true;
     }
   }
   return false;
 }
+

@@ -5,6 +5,14 @@
 <script>
   import { goto } from "$app/navigation";
   import { addUser } from './storage.js';
+  // import crypto from 'crypto';
+
+  // function sha256(input) {
+  //   const hash = crypto.createHash('sha256');
+  //   hash.update(input);
+  //   return hash.digest('hex');
+  // }
+
   export async function handleCancel() {
     goto("../login");
   }
@@ -21,6 +29,7 @@
     const email = emailInput.value.trim();
     const phone = contactInput.value.trim();
     const password = passwordInput.value.trim();
+    // const passwordHash = sha256(password);
 
     // Validate input fields here (you can add more validation if needed)
 
@@ -81,6 +90,14 @@
     //   });
 
       
+        // addUser({
+        //   first_name,
+        //   last_name,
+        //   email,
+        //   phone,
+        //   password: passwordHash,
+        // });
+
         addUser({
           first_name,
           last_name,
@@ -88,6 +105,7 @@
           phone,
           password,
         });
+
         alert("Account created successfully!");
         // Redirect the user to the login page after successful account creation
         goto("/login");

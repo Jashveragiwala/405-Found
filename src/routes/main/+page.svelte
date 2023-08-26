@@ -3,7 +3,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
-  import { isAuth } from "../login/+page.svelte";
+  import { isAuth, username } from "../login/+page.svelte";
   import BankAccount from "../../controllers/BankAccount";
   import Navbar from "./Navbar.svelte";
 
@@ -21,11 +21,11 @@
     handleAuthentication();
   });
 
-  const account1 = new BankAccount("DBS", "74986123", "Jash", 3250);
-  const account2 = new BankAccount("Standard Chartered", "31579082", "Jash", 7820);
-  const account3 = new BankAccount("Citibank", "46820514", "Jash", 8470);
-  const account4 = new BankAccount("HSBC", "92673108", "Jash", 1950);
-  const account5 = new BankAccount("UOB", "57293410", "Jash", 5690);
+  const account1 = new BankAccount("DBS", "74986123", username, 3250);
+  const account2 = new BankAccount("Standard Chartered", "31579082", username, 7820);
+  const account3 = new BankAccount("Citibank", "46820514", username, 8470);
+  const account4 = new BankAccount("HSBC", "92673108", username, 1950);
+  const account5 = new BankAccount("UOB", "57293410", username, 5690);
 
 
   let bankAccounts = [
