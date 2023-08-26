@@ -4,6 +4,8 @@
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
   import { isAuth } from "../login/+page.svelte";
+	import Navbar from "./Navbar.svelte";
+
 
   function handleAuthentication() {
     if (isAuth) {
@@ -140,6 +142,7 @@
   }
 </style>
 
+<Navbar />
 <div class="dashboard">
   <div class="dashboard-header">Dashboard</div>
   <div class="total-amount">Total Amount: ${totalAmount}</div>

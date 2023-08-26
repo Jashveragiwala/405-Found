@@ -51,6 +51,7 @@
 		"@supabase/supabase-js": "^2.26.0",
 		"@trycourier/courier": "^4.8.0",
 		"ssh2-sftp-client": "^9.1.0",
+		"svelte-routing": "^2.0.0",
 		"twilio": "^4.14.1"
 	}
 }

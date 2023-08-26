@@ -5,7 +5,7 @@
 
 	const navs = [
 		{
-			label: 'Home',
+			label: 'Dashboard',
 			href: `/${user}`
 		},
 		{
