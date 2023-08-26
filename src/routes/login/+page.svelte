@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
 	import vault from '$lib/assets/bankapp/vault.svg';
-
+	import { verifyUser } from '../signup/storage.js';
 	export async function handleSignUp() {
 		goto('../signup');
 	}
@@ -8,7 +8,7 @@
 
 	export async function handleLogin(username: String, password: String) {
 		console.log(`Attempting to log in as ${username}...`);
-		if (username === 'jash' && password === '12345') {
+		if (verifyUser(username, password)) {
 			isAuth = true;
 			goto(`../main`); 
 		} else {

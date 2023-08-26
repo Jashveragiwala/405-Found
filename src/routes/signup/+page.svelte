@@ -4,7 +4,7 @@
 
 <script>
   import { goto } from "$app/navigation";
-
+  import { addUser } from './storage.js';
   export async function handleCancel() {
     goto("../login");
   }
@@ -81,6 +81,16 @@
       });
 
       if (response.ok) {
+        addUser({
+          first_name,
+          last_name,
+          email,
+          phone,
+          password,
+          points: 0,
+          notify_phone: true,
+          notify_email: true,
+        });
         alert("Account created successfully!");
         // Redirect the user to the login page after successful account creation
         goto("/login");
