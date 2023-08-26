@@ -87,11 +87,12 @@
 
 <style>
   .dashboard {
-    background-color: #212121;
+    background-color: #000;
     color: black; /* Text color updated to black */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding-bottom: 800px;
   }
   .dashboard-header {
     font-size: 28px;
