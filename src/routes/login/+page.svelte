@@ -8,28 +8,10 @@
 	export async function handleLogin(username: String, password: String) {
 		console.log(`Attempting to log in as ${username}...`);
 
-		try {
-			const res = await fetch('/api/bankapp/userAuth', {
-				method: 'POST',
-				body: JSON.stringify({
-					username,
-					password
-				}),
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			});
-
-			console.log(res.ok ? 'API call successfully returned' : 'API call failed');
-			let response = await res.json();
-			console.log(response.message);
-			if (response.loginSuccess) {
-				goto(`/${response.userID}`);
-			} else {
-				return `Login failed: ${response.message}`;
-			}
-		} catch (error) {
-			return error;
+		if (username === 'jash' && password === '12345') {
+			goto(`../main`); // Replace '/next-page' with the actual route
+		} else {
+			return 'Login failed: Invalid username or password';
 		}
 	}
 </script>
@@ -61,6 +43,8 @@
 	}
 </script>
 
+<!-- Rest of the code remains the same -->
+
 {#if login_error}
 	<div class="alert alert-error fixed">
 		<svg
@@ -87,7 +71,7 @@
 		<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 			<div class="card-body">
 				<div class="max-w-md">
-					<h1 class="text-5xl font-bold">Bank App</h1>
+					<h1 class="text-5xl font-bold">Acclet</h1>
 					<div class="my-5">
 						<div class="form-control">
 							<label class="label" for="username_input">
