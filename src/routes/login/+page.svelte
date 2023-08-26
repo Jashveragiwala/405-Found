@@ -4,16 +4,18 @@
 	export async function handleSignUp() {
 		goto('../signup');
 	}
+	var isAuth = false;
 
 	export async function handleLogin(username: String, password: String) {
 		console.log(`Attempting to log in as ${username}...`);
-
 		if (username === 'jash' && password === '12345') {
-			goto(`../main`); // Replace '/next-page' with the actual route
+			isAuth = true;
+			goto(`../main`); 
 		} else {
 			return 'Login failed: Invalid username or password';
 		}
 	}
+	export {isAuth};
 </script>
 
 <script lang="ts">
