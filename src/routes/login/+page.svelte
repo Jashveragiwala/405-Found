@@ -69,9 +69,9 @@
 
 <div class="hero min-h-screen bg-base-200">
 	<div class="hero-content flex-col lg:flex-row-reverse items-end">
-		<div class="max-w-sm lg:max-w-full">
+		<!-- <div class="max-w-sm lg:max-w-full">
 			<img src={vault} class="shadow-2xl" alt="Person withdrawing money from a giant vault" />
-		</div>
+		</div> -->
 		<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 			<div class="card-body">
 				<div class="max-w-md">
